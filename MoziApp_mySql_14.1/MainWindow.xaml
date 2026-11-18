@@ -1,0 +1,124 @@
+﻿<Window x:Class="MoziApp_mySql_14._1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MoziApp_mySql_14._1"
+        mc:Ignorable="d"
+        Title="Mozi alkalmazás" MinHeight="550" Height="550" Width="900" MinWidth="900"
+        WindowStartupLocation="CenterScreen" 
+        Icon="film.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!--bal oldal-->
+        
+        <StackPanel Margin="10">
+            <TextBlock Text="Cím:"
+                       FontSize="16"
+                       FontWeight="DemiBold"/>
+            <TextBox x:Name="tbx_cim"
+                     FontSize="16"
+                     Margin="0 5 0 10"/>
+
+            <TextBlock Text="Hossz (perc):"
+                       FontSize="16"
+                       FontWeight="DemiBold"/>
+            <TextBox x:Name="tbx_hossz"
+                     FontSize="16"
+                     Margin="0 5 0 10"/>
+
+            <TextBlock Text="Korhatár:"
+                       FontSize="16"
+                       FontWeight="DemiBold"/>
+            <ComboBox x:Name="cbx_korhatar"
+                     FontSize="16"
+                     Margin="0 5 0 10"/>
+
+            <TextBlock Text="Műfaj:"
+                       FontSize="16"
+                       FontWeight="DemiBold"/>
+            <ComboBox x:Name="cbx_mufaj"
+                     FontSize="16"
+                     Margin="0 5 0 10"/>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Button x:Name="btn_hozzaad"
+                        Content="Hozzáad"
+                        Width="120"
+                        FontSize="16"
+                        Margin="5"
+                        Click="btn_hozzaad_Click"/>
+                <Button x:Name="btn_modosit"
+                        Content="Módosít"
+                        Width="120"
+                        FontSize="16"
+                        Margin="5"
+                        Click="btn_modosit_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Button x:Name="btn_torles"
+                        Content="Törlés"
+                        Width="120"
+                        FontSize="16"
+                        Margin="5"
+                        Click="btn_torles_Click"/>
+                <Button x:Name="btn_frissites"
+                        Content="Frissítés"
+                        Width="120"
+                        FontSize="16"
+                        Margin="5"
+                        Click="btn_frissites_Click"/>
+            </StackPanel>
+            <Separator Margin="0 10 0 10"/>
+            <TextBlock Text="Szűrés korhatár szerint"
+                       FontSize="16"
+                       FontWeight="DemiBold"/>
+
+            <StackPanel Margin=" 0 5 0 0">
+                <RadioButton x:Name="rb_osszes"
+                             GroupName="korhatar"
+                             Content="Összes"
+                             FontSize="16"
+                             VerticalContentAlignment="Center"
+                             Checked="rb_osszes_Checked"/>
+
+                <RadioButton 
+                             GroupName="korhatar"
+                             Content="KN"
+                             FontSize="16"
+                             VerticalContentAlignment="Center"
+                             Checked="rb_osszes_Checked"/>
+                <RadioButton 
+                             GroupName="korhatar"
+                             Content="12"
+                             FontSize="16"
+                             VerticalContentAlignment="Center"
+                    Checked="rb_osszes_Checked"/>
+                <RadioButton 
+                             GroupName="korhatar"
+                             Content="16"
+                             FontSize="16"
+                             VerticalContentAlignment="Center"
+                    Checked="rb_osszes_Checked"/>
+                <RadioButton 
+                             GroupName="korhatar"
+                             Content="18"
+                             FontSize="16"
+                             VerticalContentAlignment="Center"
+                    Checked="rb_osszes_Checked"/>
+            </StackPanel>
+
+        </StackPanel>
+        <!--Jobb oldal-->
+        <DataGrid x:Name="dg_filmek"
+                  Grid.Column="1"
+                  Margin="10"
+                  SelectionChanged="dg_filmek_SelectionChanged"/>
+    </Grid>
+</Window>
